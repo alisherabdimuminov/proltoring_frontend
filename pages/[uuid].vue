@@ -20,7 +20,7 @@ definePageMeta({
     layout: "user"
 });
 useHead({
-    title: "Davlat ekologik ekspertizasi markazi"
+    title: "LMC - Zukko"
 });
 
 const { user } = useAuth();

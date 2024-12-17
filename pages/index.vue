@@ -8,7 +8,7 @@ definePageMeta({
     layout: "user"
 });
 useHead({
-    title: "O'zbekiston-Finlandiya pedagogika institu"
+    title: "LMC - Zukko"
 });
 
 const { user } = useAuth();
