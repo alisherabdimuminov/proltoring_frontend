@@ -29,7 +29,7 @@ const colorMode = useColorMode();
                             </NuxtLink>
                         </TooltipTrigger>
                         <TooltipContent side="right">
-                            Bosh sahifa
+                            Bosh sahifa 
                         </TooltipContent>
                     </Tooltip>
                 </TooltipProvider>
@@ -86,25 +86,17 @@ const colorMode = useColorMode();
         <div class="flex-1 w-[calc(100%-3.5rem)]">
             <div class="h-[3rem] border-b bg-accent/30 flex items-center justify-between px-5">
                 <div>
-                    <p class="font-bold">O'zbekiston-Finlandiya Pedagogika Instituti</p>
+                    <p class="font-bold">LMC - Zukko</p>
                 </div>
                 <DropdownMenu>
                     <DropdownMenuTrigger>
                         <LucideUser />
                     </DropdownMenuTrigger>
                     <DropdownMenuContent class="w-64">
-                        <DropdownMenuLabel>{{ user?.phone }}</DropdownMenuLabel>
-                        <DropdownMenuSeparator />
                         <DropdownMenuItem>
                             {{ user?.first_name }} {{ user?.last_name }}
                             <DropdownMenuShortcut>
                                 <LucideUser :size="16" />
-                            </DropdownMenuShortcut>
-                        </DropdownMenuItem>
-                        <DropdownMenuItem>
-                            {{ user?.branch }}
-                            <DropdownMenuShortcut>
-                                <LucideGitBranch :size="16" />
                             </DropdownMenuShortcut>
                         </DropdownMenuItem>
                         <DropdownMenuSeparator />
