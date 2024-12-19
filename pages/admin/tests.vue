@@ -44,10 +44,11 @@ const test = ref<ITest>({
     status: "not_started",
     elapsed: 0,
 
-    left: 0,
-    right: 0,
+    attention: 0,
     no_person: 0,
     two_person: 0,
+    on_blur: 0,
+    fine: 0,
 });
 const tests = ref<ITest[]>();
 const users = ref<IUser[]>();
@@ -181,10 +182,10 @@ const printTestsResult = async () => {
                     <TableHead>Holati</TableHead>
                     <TableHead>Natija</TableHead>
                     <TableHead>Sarflangan vaqt</TableHead>
-                    <TableHead class="border-l">Chap</TableHead>
-                    <TableHead>O'ng</TableHead>
-                    <TableHead>Odam yuq</TableHead>
-                    <TableHead>Odam kup</TableHead>
+                    <TableHead class="border-l">Holati</TableHead>
+                    <TableHead>Kamerada obyekt</TableHead>
+                    <TableHead>Ekran holati</TableHead>
+                    <TableHead>Jarima</TableHead>
                 </TableHeader>
                 <TableBody>
                     <TableRow v-for="test, index in tests">
@@ -203,13 +204,10 @@ const printTestsResult = async () => {
                         </TableCell>
                         <TableCell>{{ test.percentage }}</TableCell>
                         <TableCell>{{ secondsToHMS(test.elapsed) }}</TableCell>
-                        <TableCell class="border-l text-center">{{ test.left }}</TableCell>
-                        <TableCell class="text-center">{{ test.right }}</TableCell>
+                        <TableCell class="border-l text-center">{{ test.attention }}</TableCell>
                         <TableCell class="text-center">{{ test.no_person }}</TableCell>
-                        <TableCell class="text-center">{{ test.two_person }}</TableCell>
-                        <!-- <TableCell>
-                            <Button v-if="test.status !== 'not_started' && test.status !== 'started'" @click="printTestResult(test)" size="xs">PDF Natija</Button>
-                        </TableCell> -->
+                        <TableCell class="text-center">{{ test.on_blur }}</TableCell>
+                        <TableCell class="text-center">{{ test.fine }}</TableCell>
                     </TableRow>
                 </TableBody>
             </Table>

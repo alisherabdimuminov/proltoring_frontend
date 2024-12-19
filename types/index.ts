@@ -50,8 +50,9 @@ export interface ITest {
     questions?: IQuestion[]
     cases?: any
 
-    left: number
-    right: number
+    attention: number
     two_person: number
     no_person: number
+    on_blur: number
+    fine: number
 }

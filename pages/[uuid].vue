@@ -36,6 +36,7 @@ const isShown = ref(false);
 
 const isCameraAllowed = ref(false);
 const isLoading = ref(true);
+const open = ref(false);
 
 let video: HTMLVideoElement;
 let faceLandMarker: FaceLandmarker;
@@ -203,15 +204,17 @@ onMounted(async () => {
             cameraHeight = settings.height || 0;
         })
 
-    window.onblur = async () => {
-        let response = await $fetch(apify("blur"), {
-            method: "post",
-            body: JSON.stringify({
-                "test": route.params.uuid,
-            })
-        });
-        navigateTo({ name: "index" });
-    }
+    document.addEventListener("visibilitychange", async () => {
+        if (document.hidden) {
+            let response = await $fetch<IResponse<{ on_blur: number }>>(apify("blur"), {
+                method: "post",
+                body: JSON.stringify({
+                    "test": route.params.uuid,
+                })
+            });
+            open.value = true;
+        }
+    });
 });
 
 
@@ -285,11 +288,28 @@ onUnmounted(() => {
         // @ts-ignore
         video.srcObject.getTracks()[0].stop();
     }
+    window.requestAnimationFrame(() => {});
+    console.log("chiqildi");
+    document.removeEventListener("visibilitychange", () => {});
 })
 </script>
 
 <template>
     <div class="p-5 md:p-10 flex flex-col gap-5 sm:mx-16 md:mx-24 lg:mx-64">
+        <Dialog v-model:open="open">
+            <DialogContent>
+                <DialogHeader>
+                    <DialogTitle>Ogohlantirish</DialogTitle>
+                    <DialogDescription>Kechirasiz, siz qoidalarni buzyabsiz.</DialogDescription>
+                </DialogHeader>
+                <p>Siz taqiqlangan amallarni bajaryabsiz. Yani, test yechish muhidan chiqib ketyabsiz.</p>
+                <DialogFooter>
+                    <DialogClose>
+                        <Button>Tushunarli</Button>
+                    </DialogClose>
+                </DialogFooter>
+            </DialogContent>
+        </Dialog>
         <div class="flex justify-between">
             <Button @click="navigateTo('/')"><LucideChevronLeft /> Orqaga </Button>
             <Button v-if="test && (test.status === 'not_started' || test.status === 'started')" @click="submit" size="xs" variant="destructive">Tugatish</Button>
