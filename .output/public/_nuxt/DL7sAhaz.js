@@ -1,0 +1,1 @@
+import{u as t}from"./DcPKnQrk.js";import{ae as o,l as r}from"./BQArHuWU.js";const d=o((i,m)=>{var e,a;const{user:n}=t();if((e=i.name)!=null&&e.toString().includes("admin")&&((a=n.value)==null?void 0:a.role)!=="admin")return r({name:"index"})});export{d as default};

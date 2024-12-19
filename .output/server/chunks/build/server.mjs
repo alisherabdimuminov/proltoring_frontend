@@ -729,7 +729,7 @@ const _routes = [
     name: "uuid",
     path: "/:uuid()",
     meta: __nuxt_page_meta$7 || {},
-    component: () => import('./_uuid_-Bg9tkPNK.mjs')
+    component: () => import('./_uuid_-D2BY8nUs.mjs')
   },
   {
     name: "admin-bulk",
@@ -747,19 +747,19 @@ const _routes = [
     name: "admin-questions",
     path: "/admin/questions",
     meta: __nuxt_page_meta$4 || {},
-    component: () => import('./questions-CeiiX2S-.mjs')
+    component: () => import('./questions-BAmYgMRZ.mjs')
   },
   {
     name: "admin-tests",
     path: "/admin/tests",
     meta: __nuxt_page_meta$3 || {},
-    component: () => import('./tests-Diu-219x.mjs')
+    component: () => import('./tests-BCAZ6Oas.mjs')
   },
   {
     name: "admin-users",
     path: "/admin/users",
     meta: __nuxt_page_meta$2 || {},
-    component: () => import('./users-DJf8w0PZ.mjs')
+    component: () => import('./users-rLwbyMlw.mjs')
   },
   {
     name: "auth-login",

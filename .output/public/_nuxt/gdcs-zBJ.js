@@ -1,1 +1,0 @@
-import{u as t}from"./BSwMdpzS.js";import{ad as o,n as r}from"./C-j2z-wG.js";const u=o((n,d)=>{var e,a;const{user:i}=t();if((e=n.name)!=null&&e.toString().includes("admin")&&((a=i.value)==null?void 0:a.role)!=="admin")return r({name:"index"})});export{u as default};
